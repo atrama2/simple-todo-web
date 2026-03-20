@@ -28,8 +28,8 @@
   --color-drag-over: #312e81;
   --color-hover: #334155;
   --color-danger-bg: #450a0a;
-  --shadow-card: 0 2px 8px rgba(0, 0, 0, 0.4);
-  --shadow-elevated: 0 4px 12px rgba(0, 0, 0, 0.5);
+  --shadow-card: 0 2px 12px rgba(0, 0, 0, 0.3);
+  --shadow-elevated: 0 8px 24px rgba(0, 0, 0, 0.4);
   --shadow-focus: 0 0 0 3px rgba(99, 102, 241, 0.4);
 }
 
@@ -57,10 +57,10 @@
   --space-xl: 32px;
 
   /* Border & Shadow */
-  --radius-card: 8px;
+  --radius-card: 12px;
   --radius-input: 12px;
-  --shadow-card: 0 1px 3px rgba(0, 0, 0, 0.1);
-  --shadow-elevated: 0 4px 6px rgba(0, 0, 0, 0.1);
+  --shadow-card: 0 2px 12px rgba(0, 0, 0, 0.08);
+  --shadow-elevated: 0 8px 24px rgba(0, 0, 0, 0.12);
   --shadow-focus: 0 0 0 3px rgba(99, 102, 241, 0.2);
 }
 
@@ -93,6 +93,9 @@ body {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
+  background-color: var(--color-card);
+  border-radius: var(--radius-card);
+  box-shadow: var(--shadow-card);
 }
 
 /* ========================================
@@ -450,7 +453,6 @@ body {
     border-radius: var(--radius-card);
     box-shadow: var(--shadow-elevated);
     min-height: auto;
-    background-color: var(--color-card);
   }
 
   body {
