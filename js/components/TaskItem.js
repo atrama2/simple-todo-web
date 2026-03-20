@@ -12,7 +12,7 @@ import { deleteTask, toggleTask, updateTaskOrder } from '../storage.js';
  */
 export function createTaskItem(task, onUpdate) {
   const el = document.createElement('div');
-  el.className = `task-item${task.completed ? ' completed' : ''}`;
+  el.className = `task-item ripple${task.completed ? ' completed' : ''}`;
   el.setAttribute('role', 'listitem');
   el.setAttribute('draggable', 'true');
   el.dataset.taskId = task.id;
@@ -27,7 +27,7 @@ export function createTaskItem(task, onUpdate) {
       ></button>
     </div>
     <span class="task-title">${escapeHtml(task.title)}</span>
-    <button class="delete-btn" aria-label="ลบงาน">
+    <button class="delete-btn ripple" aria-label="ลบงาน">
       <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
         <polyline points="3 6 5 6 21 6"></polyline>
         <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path>
