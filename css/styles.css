@@ -1,68 +1,190 @@
 /* ========================================
-   CSS Variables - Design Tokens
+   Material Design 3 — CSS Variables
    ======================================== */
 :root {
-  /* Colors */
-  --color-primary: #6366f1;
-  --color-primary-hover: #4f46e5;
-  --color-background: #f8fafc;
-  --color-card: #ffffff;
-  --color-text: #1e293b;
-  --color-text-muted: #94a3b8;
-  --color-success: #22c55e;
-  --color-danger: #ef4444;
-  --color-danger-hover: #dc2626;
-  --color-border: #e2e8f0;
-  --color-drag-over: #c7d2fe;
-  --color-hover: #f1f5f9;
-  --color-danger-bg: #fef2f2;
+  /* M3 Color Palette — Primary */
+  --md-primary: #6750A4;
+  --md-on-primary: #FFFFFF;
+  --md-primary-container: #EADDFF;
+  --md-on-primary-container: #21005D;
+
+  /* M3 Color Palette — Secondary */
+  --md-secondary: #625B71;
+  --md-on-secondary: #FFFFFF;
+  --md-secondary-container: #E8DEF8;
+  --md-on-secondary-container: #1D192B;
+
+  /* M3 Color Palette — Tertiary */
+  --md-tertiary: #7D5260;
+  --md-on-tertiary: #FFFFFF;
+  --md-tertiary-container: #FFD8E4;
+  --md-on-tertiary-container: #31111D;
+
+  /* M3 Color Palette — Error */
+  --md-error: #B3261E;
+  --md-on-error: #FFFFFF;
+  --md-error-container: #F9DEDC;
+  --md-on-error-container: #410E0B;
+
+  /* M3 Color Palette — Surface & Background */
+  --md-surface: #FFFBFE;
+  --md-surface-dim: #DED8E1;
+  --md-surface-container: #F3EDF7;
+  --md-surface-container-low: #F7F2FA;
+  --md-surface-container-high: #ECE6F0;
+  --md-surface-container-highest: #E6E0E9;
+  --md-on-surface: #1C1B1F;
+  --md-on-surface-variant: #49454F;
+  --md-outline: #79747E;
+  --md-outline-variant: #CAC4D0;
+
+  /* M3 Color Palette — Background */
+  --md-background: #FFFBFE;
+  --md-on-background: #1C1B1F;
+
+  /* Legacy aliases for existing components */
+  --color-primary: var(--md-primary);
+  --color-primary-hover: #5A3EAA;
+  --color-background: var(--md-background);
+  --color-card: var(--md-surface);
+  --color-text: var(--md-on-surface);
+  --color-text-muted: var(--md-on-surface-variant);
+  --color-success: #386A20;
+  --color-danger: var(--md-error);
+  --color-danger-hover: #9C3424;
+  --color-border: var(--md-outline-variant);
+  --color-drag-over: var(--md-primary-container);
+  --color-hover: var(--md-surface-container-high);
+  --color-danger-bg: var(--md-error-container);
+
+  /* M3 Elevation — Shadow */
+  --md-elevation-1: 0 1px 2px rgba(0,0,0,0.3), 0 1px 3px 1px rgba(0,0,0,0.15);
+  --md-elevation-2: 0 1px 2px rgba(0,0,0,0.3), 0 2px 6px 2px rgba(0,0,0,0.15);
+  --md-elevation-3: 0 4px 8px 3px rgba(0,0,0,0.15), 0 1px 3px rgba(0,0,0,0.3);
+  --md-elevation-4: 0 6px 10px 4px rgba(0,0,0,0.15), 0 2px 3px rgba(0,0,0,0.3);
+  --md-elevation-5: 0 8px 12px 6px rgba(0,0,0,0.15), 0 4px 4px rgba(0,0,0,0.3);
+
+  /* Legacy shadow aliases */
+  --shadow-card: var(--md-elevation-1);
+  --shadow-elevated: var(--md-elevation-3);
+  --shadow-focus: 0 0 0 3px var(--md-primary-container);
+
+  /* Typography — Roboto */
+  --font-family: 'Roboto', system-ui, -apple-system, sans-serif;
+  --font-size-label-large: 0.875rem;   /* 14px — M3 label large */
+  --font-size-label-medium: 0.75rem;    /* 12px — M3 label medium */
+  --font-size-body-large: 1rem;         /* 16px — M3 body large */
+  --font-size-body-medium: 0.875rem;    /* 14px — M3 body medium */
+  --font-size-headline-small: 1.5rem;   /* 24px — M3 headline small */
+  --font-size-display-small: 1.75rem;   /* 28px — M3 display small */
+
+  /* M3 Spacing — 8px grid */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 20px;
+  --space-6: 24px;
+  --space-8: 32px;
+  --space-10: 40px;
+  --space-12: 48px;
+
+  /* Legacy spacing aliases */
+  --space-xs: var(--space-1);
+  --space-sm: var(--space-2);
+  --space-md: var(--space-4);
+  --space-lg: var(--space-6);
+  --space-xl: var(--space-8);
+
+  /* M3 Shape — Corner radii */
+  --shape-xs: 4px;
+  --shape-sm: 8px;
+  --shape-md: 12px;
+  --shape-lg: 16px;
+  --shape-xl: 28px;
+  --shape-full: 50px;
+
+  /* Legacy radius aliases */
+  --radius-card: var(--shape-md);
+  --radius-input: var(--shape-lg);
+  --radius-btn: var(--shape-lg);
+
+  /* M3 State layers */
+  --md-state-hover: rgba(103, 80, 164, 0.08);
+  --md-state-focus: rgba(103, 80, 164, 0.12);
+  --md-state-pressed: rgba(103, 80, 164, 0.12);
+  --md-state-dragged: rgba(103, 80, 164, 0.16);
 }
 
-/* Dark Theme */
+/* Dark Theme — M3 */
 [data-theme="dark"] {
-  --color-background: #0f172a;
-  --color-card: #1e293b;
-  --color-text: #e2e8f0;
-  --color-text-muted: #94a3b8;
-  --color-border: #475569;
-  --color-drag-over: #312e81;
-  --color-hover: #334155;
-  --color-danger-bg: #450a0a;
-  --shadow-card: 0 2px 12px rgba(0, 0, 0, 0.3);
-  --shadow-elevated: 0 8px 24px rgba(0, 0, 0, 0.4);
-  --shadow-focus: 0 0 0 3px rgba(99, 102, 241, 0.4);
+  --md-primary: #D0BCFF;
+  --md-on-primary: #381E72;
+  --md-primary-container: #4F378B;
+  --md-on-primary-container: #EADDFF;
+
+  --md-secondary: #CCC2DC;
+  --md-on-secondary: #332D41;
+  --md-secondary-container: #4A4458;
+  --md-on-secondary-container: #E8DEF8;
+
+  --md-tertiary: #EFB8C8;
+  --md-on-tertiary: #492532;
+  --md-tertiary-container: #633B48;
+  --md-on-tertiary-container: #FFD8E4;
+
+  --md-error: #F2B8B5;
+  --md-on-error: #601410;
+  --md-error-container: #8C1D18;
+  --md-on-error-container: #F9DEDC;
+
+  --md-surface: #1C1B1F;
+  --md-surface-dim: #141218;
+  --md-surface-container: #211F26;
+  --md-surface-container-low: #1D1B20;
+  --md-surface-container-high: #2B2930;
+  --md-surface-container-highest: #36343B;
+  --md-on-surface: #E6E1E5;
+  --md-on-surface-variant: #CAC4D0;
+  --md-outline: #938F99;
+  --md-outline-variant: #49454F;
+
+  --md-background: #1C1B1F;
+  --md-on-background: #E6E1E5;
+
+  /* Legacy aliases */
+  --color-primary: var(--md-primary);
+  --color-primary-hover: #B69DF8;
+  --color-background: var(--md-background);
+  --color-card: var(--md-surface);
+  --color-text: var(--md-on-surface);
+  --color-text-muted: var(--md-on-surface-variant);
+  --color-success: #9CD67D;
+  --color-danger: var(--md-error);
+  --color-danger-hover: #F2B8B5;
+  --color-border: var(--md-outline-variant);
+  --color-drag-over: var(--md-primary-container);
+  --color-hover: var(--md-surface-container-high);
+  --color-danger-bg: var(--md-error-container);
+
+  --md-elevation-1: 0 1px 2px rgba(0,0,0,0.5), 0 1px 3px 1px rgba(0,0,0,0.3);
+  --md-elevation-2: 0 1px 2px rgba(0,0,0,0.5), 0 2px 6px 2px rgba(0,0,0,0.3);
+  --md-elevation-3: 0 4px 8px 3px rgba(0,0,0,0.3), 0 1px 3px rgba(0,0,0,0.5);
+
+  --shadow-card: var(--md-elevation-1);
+  --shadow-elevated: var(--md-elevation-3);
+  --shadow-focus: 0 0 0 3px var(--md-primary-container);
+
+  --md-state-hover: rgba(208, 188, 255, 0.08);
+  --md-state-focus: rgba(208, 188, 255, 0.12);
+  --md-state-pressed: rgba(208, 188, 255, 0.12);
+  --md-state-dragged: rgba(208, 188, 255, 0.16);
 }
 
-/* Dark mode specific input improvements */
-[data-theme="dark"] .add-task-input {
-  border-color: #475569;
-  background-color: #1e293b;
-}
-
-[data-theme="dark"] .add-task-input::placeholder {
-  color: #64748b;
-}
-
-  /* Typography */
-  --font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-  --font-size-sm: 0.875rem;
-  --font-size-base: 1rem;
-  --font-size-lg: 1.5rem;
-
-  /* Spacing */
-  --space-xs: 4px;
-  --space-sm: 8px;
-  --space-md: 16px;
-  --space-lg: 24px;
-  --space-xl: 32px;
-
-  /* Border & Shadow */
-  --radius-card: 12px;
-  --radius-input: 12px;
-  --shadow-card: 0 2px 12px rgba(0, 0, 0, 0.08);
-  --shadow-elevated: 0 8px 24px rgba(0, 0, 0, 0.12);
-  --shadow-focus: 0 0 0 3px rgba(99, 102, 241, 0.2);
-}
+/* ========================================
+   Roboto Font Import
+   ======================================== */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap');
 
 /* ========================================
    Reset & Base
@@ -75,72 +197,126 @@
 
 body {
   font-family: var(--font-family);
-  font-size: var(--font-size-base);
+  font-size: var(--font-size-body-large);
   color: var(--color-text);
-  background-color: var(--color-background);
+  background-color: var(--md-surface-dim);
   line-height: 1.5;
   min-height: 100vh;
   -webkit-font-smoothing: antialiased;
+  /* M3: body uses surface-container-low background */
+  background-color: var(--md-surface-container-low);
 }
 
 /* ========================================
-   App Container
+   M3 Ripple Effect
+   ======================================== */
+.ripple {
+  position: relative;
+  overflow: hidden;
+}
+
+.ripple::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  background: currentColor;
+  opacity: 0;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  transition: opacity 0.2s ease, width 0.2s ease, height 0.2s ease;
+}
+
+.ripple:active::before {
+  opacity: 0.12;
+  width: 200px;
+  height: 200px;
+}
+
+/* ========================================
+   App Container — M3 Card Surface
    ======================================== */
 .app-container {
   max-width: 480px;
   margin: 0 auto;
-  padding: var(--space-md);
+  padding: var(--space-4);
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  background-color: var(--color-card);
-  border-radius: var(--radius-card);
-  box-shadow: var(--shadow-card);
+  background-color: var(--md-surface);
+  border-radius: var(--shape-xl);
+  box-shadow: var(--md-elevation-3);
+}
+
+/* M3: use container tokens on desktop */
+@media (min-width: 640px) {
+  .app-container {
+    margin: var(--space-6) auto;
+    min-height: auto;
+    border-radius: var(--shape-xl);
+    box-shadow: var(--md-elevation-5);
+    padding: var(--space-6);
+  }
+
+  body {
+    padding: var(--space-4);
+  }
+}
+
+@media (min-width: 1024px) {
+  .app-container {
+    margin: var(--space-8) auto;
+  }
 }
 
 /* ========================================
-   Header
+   Header — M3 Typography
    ======================================== */
 .header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: var(--space-md) 0;
-  margin-bottom: var(--space-md);
+  padding: var(--space-4) 0;
+  margin-bottom: var(--space-4);
 }
 
 .header-title {
-  font-size: var(--font-size-lg);
-  font-weight: 700;
-  color: var(--color-text);
+  font-size: var(--font-size-headline-small);
+  font-weight: 500; /* M3 headline uses medium weight */
+  color: var(--md-on-surface);
+  letter-spacing: 0;
+  line-height: 2rem;
 }
 
 .header-count {
-  font-size: var(--font-size-sm);
-  color: var(--color-text-muted);
-  font-weight: 500;
+  font-size: var(--font-size-label-large);
+  color: var(--md-on-surface-variant);
+  font-weight: 400;
 }
 
 /* ========================================
-   Theme Toggle Button
+   Theme Toggle — M3 Icon Button
    ======================================== */
 .theme-toggle {
-  width: 40px;
-  height: 40px;
+  width: 48px;
+  height: 48px;
   display: flex;
   align-items: center;
   justify-content: center;
   border: none;
   background: transparent;
-  color: var(--color-text-muted);
+  color: var(--md-on-surface-variant);
   cursor: pointer;
-  border-radius: var(--radius-card);
-  transition: color 0.15s ease, background-color 0.15s ease;
+  border-radius: var(--shape-full);
+  transition: background-color 0.15s ease, color 0.15s ease;
 }
 
 .theme-toggle:hover {
-  color: var(--color-text);
-  background-color: var(--color-hover);
+  background-color: var(--md-state-hover);
+  color: var(--md-on-surface);
 }
 
 .theme-toggle:focus-visible {
@@ -149,27 +325,15 @@ body {
 }
 
 .theme-toggle svg {
-  width: 22px;
-  height: 22px;
+  width: 24px;
+  height: 24px;
 }
 
-/* Hide/Show icons based on theme - Default: show moon */
-.theme-toggle .icon-sun {
-  display: none;
-}
+.theme-toggle .icon-sun { display: none; }
+.theme-toggle .icon-moon { display: block; }
 
-.theme-toggle .icon-moon {
-  display: block;
-}
-
-/* When dark mode is active, swap icons */
-[data-theme="dark"] .theme-toggle .icon-sun {
-  display: block;
-}
-
-[data-theme="dark"] .theme-toggle .icon-moon {
-  display: none;
-}
+[data-theme="dark"] .theme-toggle .icon-sun { display: block; }
+[data-theme="dark"] .theme-toggle .icon-moon { display: none; }
 
 /* ========================================
    Task List
@@ -178,8 +342,8 @@ body {
   flex: 1;
   display: flex;
   flex-direction: column;
-  gap: var(--space-sm);
-  margin-bottom: var(--space-md);
+  gap: var(--space-2);
+  margin-bottom: var(--space-4);
 }
 
 .task-list:empty {
@@ -187,70 +351,110 @@ body {
 }
 
 /* ========================================
-   Empty State
+   Empty State — M3 Style
    ======================================== */
 .empty-state {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: var(--space-xl);
-  color: var(--color-text-muted);
+  padding: var(--space-8);
+  color: var(--md-on-surface-variant);
   text-align: center;
   flex: 1;
+  gap: var(--space-2);
+}
+
+.empty-state-icon {
+  width: 64px;
+  height: 64px;
+  color: var(--md-outline);
+  margin-bottom: var(--space-2);
 }
 
 .empty-state p {
-  font-size: var(--font-size-base);
+  font-size: var(--font-size-body-large);
+  color: var(--md-on-surface-variant);
 }
 
 .empty-state-hint {
-  font-size: var(--font-size-sm) !important;
-  margin-top: var(--space-xs);
+  font-size: var(--font-size-label-large) !important;
+  color: var(--md-outline);
 }
 
 /* ========================================
-   Task Item
+   Task Item — M3 Card (Elevated)
    ======================================== */
 .task-item {
   display: flex;
   align-items: center;
-  gap: var(--space-sm);
-  padding: var(--space-md);
-  background-color: var(--color-card);
-  border: 1px solid var(--color-border);
-  border-radius: var(--radius-card);
-  box-shadow: var(--shadow-card);
+  gap: var(--space-3);
+  padding: var(--space-3) var(--space-4);
+  background-color: var(--md-surface-container-low);
+  border-radius: var(--shape-md);
+  box-shadow: var(--md-elevation-1);
   cursor: grab;
-  transition: transform 0.15s ease, opacity 0.15s ease, box-shadow 0.15s ease, background-color 0.15s ease;
+  transition:
+    background-color 0.15s ease,
+    box-shadow 0.15s ease,
+    transform 0.15s ease;
   user-select: none;
+  position: relative;
+  overflow: hidden;
+}
+
+.task-item::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: currentColor;
+  opacity: 0;
+  transition: opacity 0.15s ease;
+  pointer-events: none;
 }
 
 .task-item:hover {
-  background-color: var(--color-hover);
+  background-color: var(--md-surface-container);
+  box-shadow: var(--md-elevation-2);
 }
 
 .task-item:active {
   cursor: grabbing;
+  background-color: var(--md-state-pressed);
 }
 
-/* Dragging state */
+/* M3: Ripple on click */
+.task-item.ripple:active::before {
+  opacity: 0.08;
+}
+
+/* Dragging state — M3 elevated */
 .task-item.dragging {
-  opacity: 0.5;
+  opacity: 0.6;
   transform: scale(1.02);
-  box-shadow: var(--shadow-elevated);
+  box-shadow: var(--md-elevation-4);
+  background-color: var(--md-surface-container-high);
+  z-index: 10;
 }
 
-/* Drag-over state (drop target) */
+/* Drag-over state — M3 indicator */
 .task-item.drag-over {
-  border-top: 3px solid var(--color-primary);
-  padding-top: calc(var(--space-md) - 2px);
+  border-top: 3px solid var(--md-primary);
+  padding-top: calc(var(--space-3) - 2px);
+  box-shadow: var(--md-elevation-2);
+  background-color: var(--md-primary-container);
 }
 
 /* Completed state */
+.task-item.completed {
+  background-color: var(--md-surface-container-lowest, var(--md-surface-container-low));
+  opacity: 0.74;
+}
+
 .task-item.completed .task-title {
   text-decoration: line-through;
-  color: var(--color-text-muted);
+  color: var(--md-on-surface-variant);
 }
 
 .task-item.completed .task-checkbox {
@@ -270,7 +474,7 @@ body {
 }
 
 /* ========================================
-   Task Checkbox
+   Task Checkbox — M3 Icon Button style
    ======================================== */
 .task-checkbox-wrapper {
   flex-shrink: 0;
@@ -280,17 +484,22 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 22px;
-  height: 22px;
-  border: 2px solid var(--color-border);
-  border-radius: 50%;
+  width: 24px;
+  height: 24px;
+  border: 2px solid var(--md-outline);
+  border-radius: var(--shape-full);
   cursor: pointer;
-  transition: background-color 0.15s ease, border-color 0.15s ease;
+  transition:
+    background-color 0.15s ease,
+    border-color 0.15s ease,
+    box-shadow 0.15s ease;
   background-color: transparent;
+  color: transparent;
 }
 
 .task-checkbox:hover {
-  border-color: var(--color-primary);
+  border-color: var(--md-primary);
+  background-color: var(--md-state-hover);
 }
 
 .task-checkbox:focus-visible {
@@ -299,32 +508,35 @@ body {
 }
 
 /* ========================================
-   Task Title
+   Task Title — M3 Body Large
    ======================================== */
 .task-title {
   flex: 1;
-  font-size: var(--font-size-base);
-  color: var(--color-text);
+  font-size: var(--font-size-body-large);
+  color: var(--md-on-surface);
   word-break: break-word;
+  line-height: 1.5;
 }
 
 /* ========================================
-   Delete Button
+   Delete Button — M3 Icon Button
    ======================================== */
 .delete-btn {
   flex-shrink: 0;
-  width: 32px;
-  height: 32px;
+  width: 40px;
+  height: 40px;
   display: flex;
   align-items: center;
   justify-content: center;
   border: none;
   background: transparent;
-  color: var(--color-text-muted);
+  color: var(--md-on-surface-variant);
   cursor: pointer;
-  border-radius: var(--radius-card);
-  transition: color 0.15s ease, background-color 0.15s ease;
+  border-radius: var(--shape-full);
+  transition: background-color 0.15s ease, color 0.15s ease;
   opacity: 0;
+  position: relative;
+  overflow: hidden;
 }
 
 .task-item:hover .delete-btn,
@@ -332,9 +544,23 @@ body {
   opacity: 1;
 }
 
+.delete-btn::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: currentColor;
+  opacity: 0;
+  transition: opacity 0.15s ease;
+}
+
+.delete-btn.ripple:active::before {
+  opacity: 0.12;
+}
+
 .delete-btn:hover {
-  color: var(--color-danger);
-  background-color: var(--color-danger-bg);
+  color: var(--md-error);
+  background-color: var(--md-error-container);
 }
 
 .delete-btn:focus-visible {
@@ -351,85 +577,121 @@ body {
 }
 
 /* ========================================
-   Add Task Input
+   Add Task Container
    ======================================== */
 .add-task-container {
-  padding: var(--space-md) 0;
-  border-top: 1px solid var(--color-border);
+  padding: var(--space-4) 0 0;
+  border-top: 1px solid var(--md-outline-variant);
+  margin-top: var(--space-2);
 }
 
 .input-wrapper {
   display: flex;
-  gap: var(--space-sm);
+  gap: var(--space-2);
   align-items: center;
 }
 
+/* ========================================
+   Add Task Input — M3 Outlined Text Field
+   ======================================== */
 .add-task-input {
   flex: 1;
-  padding: var(--space-md);
-  font-size: var(--font-size-base);
+  padding: var(--space-3) var(--space-4);
+  font-size: var(--font-size-body-large);
   font-family: var(--font-family);
-  border: 2px solid var(--color-border);
-  border-radius: var(--radius-input);
-  background-color: var(--color-card);
-  color: var(--color-text);
-  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+  border: 1px solid var(--md-outline);
+  border-radius: var(--shape-md);
+  background-color: transparent;
+  color: var(--md-on-surface);
+  transition:
+    border-color 0.15s ease,
+    box-shadow 0.15s ease;
+  /* M3 outlined text field */
+  height: 56px;
+  display: flex;
+  align-items: center;
 }
 
 .add-task-input::placeholder {
-  color: var(--color-text-muted);
+  color: var(--md-on-surface-variant);
 }
 
 .add-task-input:focus {
   outline: none;
-  border-color: var(--color-primary);
+  border-color: var(--md-primary);
+  border-width: 2px;
   box-shadow: var(--shadow-focus);
 }
 
 .add-task-input.error {
-  border-color: var(--color-danger);
+  border-color: var(--md-error);
+  border-width: 2px;
 }
 
 .add-task-input.error:focus {
-  box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.2);
+  box-shadow: 0 0 0 3px var(--md-error-container);
 }
 
 .add-task-input:disabled {
-  background-color: var(--color-background);
+  background-color: var(--md-surface-container-highest);
   cursor: not-allowed;
+  color: var(--md-on-surface-variant);
 }
 
 .input-error {
-  font-size: var(--font-size-sm);
-  color: var(--color-danger);
-  margin-top: var(--space-xs);
+  font-size: var(--font-size-label-medium);
+  color: var(--md-error);
+  margin-top: var(--space-1);
   min-height: 20px;
+  padding-left: var(--space-4);
 }
 
 /* ========================================
-   Add Button
+   Add Button — M3 Filled Button
    ======================================== */
 .add-btn {
-  width: 48px;
-  height: 48px;
+  width: 56px;
+  height: 56px;
   display: flex;
   align-items: center;
   justify-content: center;
   border: none;
-  background-color: var(--color-primary);
-  color: white;
-  border-radius: var(--radius-input);
+  background-color: var(--md-primary-container);
+  color: var(--md-on-primary-container);
+  border-radius: var(--shape-lg);
   cursor: pointer;
-  transition: background-color 0.15s ease, transform 0.1s ease;
+  transition:
+    background-color 0.15s ease,
+    transform 0.1s ease,
+    box-shadow 0.15s ease;
   flex-shrink: 0;
+  box-shadow: var(--md-elevation-1);
+  position: relative;
+  overflow: hidden;
+}
+
+.add-btn::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: currentColor;
+  opacity: 0;
+  transition: opacity 0.15s ease;
+}
+
+.add-btn.ripple:active::before {
+  opacity: 0.12;
 }
 
 .add-btn:hover {
-  background-color: var(--color-primary-hover);
+  background-color: var(--md-secondary-container);
+  box-shadow: var(--md-elevation-2);
 }
 
 .add-btn:active {
   transform: scale(0.95);
+  background-color: var(--md-state-pressed);
 }
 
 .add-btn:focus-visible {
@@ -438,37 +700,29 @@ body {
 }
 
 .add-btn:disabled {
-  background-color: var(--color-text-muted);
+  background-color: var(--md-surface-container-highest);
+  color: var(--md-on-surface-variant);
   cursor: not-allowed;
+  box-shadow: none;
 }
 
 /* ========================================
-   Responsive - Tablet & Desktop
+   Responsive
    ======================================== */
 @media (min-width: 640px) {
   .app-container {
-    padding: var(--space-lg);
-    max-width: 480px;
-    margin: var(--space-xl) auto;
-    border-radius: var(--radius-card);
-    box-shadow: var(--shadow-elevated);
-    min-height: auto;
-  }
-
-  body {
-    background-color: var(--color-background);
-    padding: var(--space-md);
+    padding: var(--space-6);
   }
 }
 
 @media (min-width: 1024px) {
   .app-container {
-    margin: var(--space-xl) auto;
+    margin: var(--space-8) auto;
   }
 }
 
 /* ========================================
-   Animations
+   Animations — M3 Motion
    ======================================== */
 @keyframes fadeIn {
   from {
@@ -481,15 +735,26 @@ body {
   }
 }
 
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 .task-item {
-  animation: fadeIn 0.2s ease;
+  animation: slideIn 0.2s ease;
 }
 
 /* ========================================
-   Scrollbar
+   Scrollbar — M3 style
    ======================================== */
 .task-list::-webkit-scrollbar {
-  width: 6px;
+  width: 8px;
 }
 
 .task-list::-webkit-scrollbar-track {
@@ -497,10 +762,18 @@ body {
 }
 
 .task-list::-webkit-scrollbar-thumb {
-  background-color: var(--color-border);
-  border-radius: 3px;
+  background-color: var(--md-outline-variant);
+  border-radius: var(--shape-full);
 }
 
 .task-list::-webkit-scrollbar-thumb:hover {
-  background-color: var(--color-text-muted);
+  background-color: var(--md-outline);
+}
+
+/* ========================================
+   M3 Focus Indicator Override
+   ======================================== */
+:focus-visible {
+  outline: 2px solid var(--md-primary);
+  outline-offset: 2px;
 }
